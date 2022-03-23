@@ -46,4 +46,4 @@ remove_outliers <- function(x, na.rm = TRUE, ...) {
 grp_dep_delay = newFlights %>% group_by(carrier) %>% mutate(dep_delay = remove_outliers(dep_delay)) %>% ungroup() %>% filter(!is.na(dep_delay))
 
 # Draw the boxplot again
-boxplot(grp_dep_delay)
+boxplot(grp_dep_delay$dep_delay ~ grp_dep_delay$carrier)
